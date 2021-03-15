@@ -16,28 +16,122 @@
 * **Tool** : Eclipse, InteilliJ, AWS, RDS, EC2, FileZilla, TortoiseGit, SourceTree, MySQL workbench, Apache Tomcat 9.0, Postman
 
 ## 기능
-### Main
-* main home
-<img src="https://user-images.githubusercontent.com/55429998/111215788-e4258a00-8616-11eb-91a9-962f04e7a9e7.png" width="800" height="300">
-* 검색창을 통해서 관광지를 검색할 수 있다.<br/>
-* 원하는 제주도 지역을 선택하여 날씨를 확인할 수 있다.
-<img src="https://user-images.githubusercontent.com/55429998/111215914-0d461a80-8617-11eb-8d12-46cb216c5a97.png" width="800" height="300">
-* 지도의 지역을 선택하면 인기 관광지 다섯개를 확인할 수 있다.
-<img src="https://user-images.githubusercontent.com/55429998/111216043-41214000-8617-11eb-9b34-c65629b0b21e.png" width="800" height="300">
-* 카테고리별 최신글을 확인할 수 있다.
-<img src="https://user-images.githubusercontent.com/55429998/111216603-f7852500-8617-11eb-926f-338e2d08d79b.png" width="500" height="200">
-<br/>
-
-### 회원가입<br/>
+### SpotList
+#### getList
 ```
-POST / users
+GET / member/list
+```
+* Response
+```
+[{
+  "num":"2",
+  "id":"sanghee",
+  "provider":"no",
+  "pass":"1234",
+  "name":"김상희",
+  "gender":"여자",
+  "birth":"1997-08-08",
+  "photo":"jeju20210215012923.jpg",
+  "address":"경기 안양시 만안구 안양동",
+  "addrdetail":"석수빌라",
+  "email":"ssss9708",
+  "email2":"gmail.com",
+  "hp":"010-1111-2512",
+  "gaipday":"2021-02-15 10:29"},
+  ...
+]
+```
+<br/>
+#### Login
+```
+POST / member/login
 ```
 * Request
 ```
 {
+  "num":"2",
+  "id":"sanghee",
+  "provider":"no",
+  "pass":"1234",
+  "name":"김상희",
+  "gender":"여자",
+  "birth":"1997-08-08",
+  "photo":"jeju20210215012923.jpg",
+  "address":"경기 안양시 만안구 안양동",
+  "addrdetail":"석수빌라",
+  "email":"ssss9708",
+  "email2":"gmail.com",
+  "hp":"010-1111-2512",
+  "gaipday":"2021-02-15 10:29"
 }
 ```
 * Response
 ```
-{}
+{
+  true
+}
+```
+#### getTotalCount
+```
+GET / member/count
+```
+* Response
+```
+{
+  42
+}
+```
+<br/>
+#### insert
+```
+POST / member/insert
+```
+* Request
+```
+{
+  "id": "hahaha",
+  "provider": "no",
+  "pass: "1234",
+  "name": "하하하",
+  "gender": "여자",
+  "birth": "2020-01-03",
+  "photo": "no",
+  "address": "경기도 안양시",
+  "addrdetail": "만안구",
+  "email": "haha",
+  "email2": "gmail.com",
+  "hp": "010-1111-1111",
+  "gaipday": "2021-01-01 10:29"
+}
+```
+<br/>
+#### delete
+```
+GET / member/delete
+```
+* Request
+```
+{
+  "num": 2
+}
+```
+<br/>
+#### update
+```
+POST / member/update
+```
+* Request
+```
+{
+  "id": "hahaha",
+  "pass: "1234",
+  "name": "하하하",
+  "gender": "여자",
+  "birth": "2020-01-03",
+  "address": "경기도 안양시",
+  "addrdetail": "만안구",
+  "email": "haha",
+  "email2": "gmail.com",
+  "hp": "010-1111-1661"
+}
 ```
