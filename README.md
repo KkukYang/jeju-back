@@ -16,7 +16,7 @@
 * **Tool** : Eclipse, InteilliJ, AWS, RDS, EC2, FileZilla, TortoiseGit, SourceTree, MySQL workbench, Apache Tomcat 9.0, Postman
 
 ## 기능
-### SpotList
+### 회원
 #### getList
 ```
 GET / member/list
